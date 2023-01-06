@@ -51,16 +51,5 @@ pipeline {
             }
         }
 
-        post {
-            failure {
-                echo 'I have failed'
-            }
-            success {
-                echo 'I have passed'
-            }
-            always {
-                echo 'I have done Testing'
-            }
-        }
     }
 }
