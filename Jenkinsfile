@@ -1,16 +1,18 @@
 pipeline {
     agent any
-    
+
     stages {
         stage('Build') {
             steps {
                 echo 'Build'
+                sh 'mvn clean package'
             }
 
         }
         stage('Test') {
             steps {
                 echo 'Testing'
+                sh 'mvn test'
             }
         }
         stage('Quality Gate - Sonar Gate') {
@@ -22,9 +24,8 @@ pipeline {
             steps {
                 echo 'Deploy'
             }
-        }
-        ## This is the Continous Deployment process from here
-        stage('Dev') {
+        } 
+         stage('Dev') {
             steps {
                 echo 'Dev Stage'
             }
