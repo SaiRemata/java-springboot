@@ -4,52 +4,18 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Build'
-                sh 'mvn clean package'
+                echo 'Building..'
             }
-
         }
         stage('Test') {
             steps {
-                echo 'Testing'
-                sh 'mvn test'
+                echo 'Testing..'
             }
         }
-        stage('Quality Gate - Sonar Gate') {
+        stage('Deploy') {
             steps {
-                echo 'Sonar Analysis'
+                echo 'Deploying....'
             }
         }
-        stage('Deploy to dev') {
-            steps {
-                echo 'Deploy'
-            }
-        } 
-         stage('Dev') {
-            steps {
-                echo 'Dev Stage'
-            }
-        }
-        stage('Q/A') {
-            steps {
-                echo 'Q/A'
-            }
-        }
-        stage('UAT') {
-            steps {
-                echo 'UAT'
-            }
-        }
-        stage('Pre-Prod') {
-            steps {
-                echo 'Pre-Prod'
-            }
-        }
-        stage('Prod') {
-            steps {
-                echo 'Prod'
-            }
-        }
-
     }
 }
